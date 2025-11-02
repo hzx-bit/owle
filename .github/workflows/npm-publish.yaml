@@ -3,11 +3,16 @@
 
 name: Node.js Package
 
-# 当创建 release 时触发
+# 触发条件
 on:
+  # 推送标签时触发（推荐：推送 v1.0.0 这样的标签即可发布）
+  push:
+    tags:
+      - 'v*'  # 匹配所有以 v 开头的标签，如 v1.0.0, v1.0.1
+  # 创建 GitHub Release 时触发
   release:
     types: [created]
-  # 也可以手动触发工作流
+  # 手动触发工作流
   workflow_dispatch:
 
 jobs:
@@ -36,8 +41,8 @@ jobs:
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
-    # 只有发布到 npm 时才执行
-    if: github.event_name == 'release'
+    # 推送标签、创建 release 或手动触发时执行发布
+    if: github.event_name == 'release' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     
     steps:
       - name: 检出代码
