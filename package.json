@@ -1,7 +1,6 @@
 {
   "name": "owle",
   "version": "1.0.1",
-  "type": "module",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
