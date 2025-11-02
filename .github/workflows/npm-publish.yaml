@@ -5,10 +5,10 @@ name: Node.js Package
 
 # 触发条件
 on:
-  # 推送标签时触发（推荐：推送 v1.0.0 这样的标签即可发布）
+  # 推送标签时触发
   push:
     tags:
-      - 'v*'  # 匹配所有以 v 开头的标签，如 v1.0.0, v1.0.1
+      - '*'  # 匹配所有标签，如 1.0.0, 1.0.1
   # 创建 GitHub Release 时触发
   release:
     types: [created]
