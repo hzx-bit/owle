@@ -1,0 +1,37 @@
+{
+  "name": "owle",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "clean": "rm -rf dist",
+    "test": "tsx test/index.test.ts"
+  },
+  "author": "zhixin huang",
+  "license": "ISC",
+  "description": "owle is a library for building web applications",
+  "devDependencies": {
+    "@types/node": "^24.9.2",
+    "tsx": "^4.7.0",
+    "typescript": "^5.9.3"
+  }
+}
